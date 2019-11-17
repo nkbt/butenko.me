@@ -1,634 +1,764 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title>Nik Butenko - Curriculum Vitae</title>
-
-	<meta name="viewport" content="width=device-width"/>
-	<meta name="description" content="The Curriculum Vitae of Nik Butenko."/>
-	<meta charset="UTF-8">
-
-	<link type="text/css" rel="stylesheet" href="./css/style.css">
-	<link type="text/css" rel="stylesheet" href="./css/font-awesome.css">
-	<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700|Lato:400,300' rel='stylesheet' type='text/css'>
-
-	<!--[if lt IE 9]>
-	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-
-	<script type="text/javascript">
-		var show = function (id) {
-			document.getElementById('container' + id).style.display = 'block';
-			document.getElementById('hide' + id).style.display = 'inline';
-			document.getElementById('show' + id).style.display = 'none';
-		};
-		var hide = function (id) {
-			document.getElementById('container' + id).style.display = 'none';
-			document.getElementById('hide' + id).style.display = 'none';
-			document.getElementById('show' + id).style.display = 'inline';
-		};
-	</script>
-
-</head>
-<body id="top">
-<div id="cv">
-<div class="mainDetails">
-	<div id="headshot">
-		<img src="./img/headshot.jpg" alt="Nik Butenko"/>
-	</div>
-
-	<div id="name">
-		<h1>Nik Butenko</h1>
-
-		<h2>Software Engineer</h2>
-	</div>
-
-	<div id="contactDetails">
-		<ul>
-			<li><a href="mailto:nikita.butenko@gmail.com" target="_blank"><span class="icon-envelope"></span>&nbsp;nik@butenko.me</a></li>
-			<li><a href="https://linkedin.com/in/nbutenko" target="_blank"><span class="icon-linkedin"></span>&nbsp;https://linkedin.com/in/nbutenko</a></li>
-			<li><a href="https://github.com/nkbt" target="_blank"><span class="icon-github"></span>&nbsp;https://github.com/nkbt</a></li>
-			<li><a href="tel:0450-264-801"><span class="icon-phone"></span>&nbsp;0450-264-801</a></li>
-			<li><a href="callto:nikita.butenko"><span class="icon-phone-sign"></span>&nbsp;nikita.butenko</a></li>
-		</ul>
-	</div>
-	<div class="clear"></div>
-</div>
-
-<div id="mainArea">
-<section>
-	<article>
-		<div class="sectionTitle">
-			<h2 id="Summary">Summary</h2>
-		</div>
-
-		<div class="sectionContent">
-			<article>
-				<p>First of all I am an engineer. I love to solve problems. I spend most of my personal time reading about new technologies, new languages and new techniques. Even if I would never use them directly, they usually inspire me to invent something new. I love my work and I am very passionate about technology. I like to share my experience and learn through my colleagues and the
-					technical community.</p>
-
-				<p>The main technology I use nowadays is Javascript. I started to program in Javascript in 2006 and since then worked full time with it. I did front-end work for all my projects, as well as back-end. During past 6 years I built my own universal and light core (PHP/Zend + Javascript/PrototypeJS) to make new projects faster and easier. It is still used in many projects and
-					couple of different teams.</p>
-
-				<p>
-					Past 3-4 years I read a lot about NodeJS and always tried to do something with it.
-					But only since the end of 2012 I started to use NodeJS in some of my real projects - at last it became mature enough and I got chance to use it for production.
-					Based on Node, I created zend-like dispatching library
-					<a href="https://github.com/nkbt/puma" class="noPrint" target="_blank"><span class="icon-github"></span>&nbsp;Puma</a>
-					<span class="print" style="display: none;">https://github.com/nkbt/puma</span>
-					and re-usable server/browser models
-					<a href="https://github.com/nkbt/gleam" class="noPrint" target="_blank"><span class="icon-github"></span>&nbsp;Gleam</a>
-					<span class="print" style="display: none;">https://github.com/nkbt/gleam</span>.
-				</p>
-			</article>
-		</div>
-	</article>
-	<div class="clear"></div>
-</section>
-
-<section>
-	<article>
-		<div class="sectionTitle">
-			<h2 id="MyMainProjects">My main projects</h2>
-		</div>
-
-		<div class="sectionContent">
-
-			<article>
-				<h3>Zend-based Core</h3>
-
-				<p class="subDetails noPrint">
-					<a id="showZend" href="javascript:show('Zend')"><span class="icon-chevron-right"></span> Expand</a>
-					<a id="hideZend" href="javascript:hide('Zend')" style="display: none;"><span class="icon-chevron-down"></span> Collapse</a>
-				</p>
-
-				<div id="containerZend" class="print" style="display: none;">
-
-					<p>Mentioned in summary Zend-based core was started during my work at Cybertone. Today I support and develop one project based on it. I wanted to publish full source code, but 3-4 years ago it was not good enough to be shared, and now it looks a bit outdated in matter of used frameworks (Zend Framework 1.12.0, Prototype JS 1.7.1).</p>
-
-					<p>I support "thin controller" idea and main business logic is implemented in models. Every model consists of Db layer, Entity transfer object, Db and Form data adapters and Manager that makes all the main work. In Db layer Zend_Db_Adapter is used and for all data selects I use Zend_Db_Select. I do not use Zend_Db_Table/Row, instead Entities are used. Entity is just a simple
-						transfer object, usually represents table row, but also has some additional properties and provides fluent interface to access related Entities.</p>
-
-					<p>The way it works is pretty simple and I managed to introduce it in at least two teams in very short time. It is also project-independent and could be used in any existing Zend-based project.</p>
-
-					<p>Recently I made important upgrade of back-end part of Core. Now it successfully utilizes Redis and NodeJS to have event-based (with Redis pub/sub) communications among different entities. The project is still based on PHP/Zend/Mysql but some heavy work (like counters, caching, cascaded updates) is now done with Node and Redis (and sometimes PHP callbacks made by Node). The
-						way
-						it works is pretty interesting and I will be happy to share it.</p>
-
-					<p>The way my front-end Javascript part is organized is still fresh despite of its age (I found some new popular libraries having similar architecture and flow). It consists of main component loader, couple of additional support classes (like request manager) and a lot of completely independent components. AMD ideology is used there to load everything (local and remote css and
-						js).
-						Actually, I implemented the loader, that works in very similar way to very popular RequireJS library. First version was written about 6 years ago and that time we did not have such a big variety of good and simple libs. Even jQuery was pretty bad comparing to PrototypeJS that time.</p>
-
-					<p>All components communicate using native DOM events only, therefore it is very easy to add new components, load them dynamically and communicate with others. In addition to pure front-end components, there are plenty of components, that work together with my custom Zend Form Elements.</p>
-
-					<p>I can say that even being the part of my core, it still could be used outside of it - once I took some main JS core files and components and easily integrated them with a Magento project (it uses Prototype).</p>
-
-					<p>For all my new projects I, of course, use all these new libraries (like RequireJS, Underscore, jQuery, Async, and many more), still keeping similar way and architecture, just using different libraries.</p>
-
-				</div>
-			</article>
-
-			<article>
-
-				<h3>NodeJS Puma library</h3>
-
-				<p class="subDetails noPrint">
-					<a id="showPuma" href="javascript:show('Puma')"><span class="icon-chevron-right"></span> Expand</a>
-					<a id="hidePuma" href="javascript:hide('Puma')" style="display: none;"><span class="icon-chevron-down"></span> Collapse</a>
-				</p>
-
-				<div id="containerPuma" class="print" style="display: none;">
-
-					<p>This library supposed to be used in ExpressJS based projects, and mainly oriented on former Zend Framework developers. It has similar dispatching and routing processes, uses controllers. Does not have any views and models section, because I wanted to keep it as small as possible. It allows to build modular API services and has bootstrapping middle-ware to serve static
-						contend for one-page applications.</p>
-
-					<p>There is a JSDoc generated documentation, that covers all publicly available methods with relevant usage examples. </p>
-
-					<p>I develop and support it in my spare time and plan to use for my future personal projects.</p>
-				</div>
-
-			</article>
-
-			<article>
-				<h3>NodeJS Gleam library</h3>
-
-				<p class="subDetails noPrint">
-					<a id="showGleam" href="javascript:show('Gleam')"><span class="icon-chevron-right"></span> Expand</a>
-					<a id="hideGleam" href="javascript:hide('Gleam')" style="display: none;"><span class="icon-chevron-down"></span> Collapse</a>
-				</p>
-
-				<div id="containerGleam" class="print" style="display: none;">
-					<p>Besides Puma, there is another library available - Gleam. And it is much more interesting and exiting. I like the idea of Transfer Objects within application. In my applications I use Entities (simple TO but with some additional functions like data validation, type casting, etc). Because I planned to write modern one-page-apps I decided to have Entities on the front-end as
-						well.</p>
-
-					<p>That is how the idea of Gleam was born. And now I am able to write Entity once and use it on the NodeJS side and on the browser side. Every entity is automatically serialized to JSON and de-serialized on front-end to correct objects. Gleam is for now on the very early stage, it is more like "proof of concept". I still need to build some real projects based on it.</p>
-				</div>
-			</article>
-		</div>
-	</article>
-	<div class="clear"></div>
-</section>
-
-
-<section>
-	<div class="sectionTitle">
-		<h2 id="KeySkills">Key Skills</h2>
-	</div>
-	<div class="sectionContent">
-
-		<article>
-			<h3>Javascript</h3>
-
-			<p class="subDetails">Major</p>
-			<ul class="keySkills">
-				<li>PrototypeJS</li>
-				<li>Scriptaculous</li>
-				<li>jQuery</li>
-				<li>RequireJS</li>
-				<li>NodeJS</li>
-				<li>Underscore</li>
-				<li>Async (Browser/Node)</li>
-				<li>ExpressJS (Node)</li>
-			</ul>
-			<p class="subDetails">Minor</p>
-			<ul class="keySkills minor">
-				<li>Mootools</li>
-			</ul>
-		</article>
-
-		<article>
-			<h3>PHP</h3>
-
-			<p class="subDetails">Major</p>
-			<ul class="keySkills">
-				<li>Zend Framework</li>
-			</ul>
-			<p class="subDetails">Minor</p>
-			<ul class="keySkills minor">
-				<li>CakePHP</li>
-				<li>Magento</li>
-				<li>Symphony</li>
-				<li>Wordpress</li>
-			</ul>
-		</article>
-
-		<article>
-			<h3>Databases</h3>
-			<ul class="keySkills">
-				<li>MySQL</li>
-				<li>MongoDB</li>
-				<li>Redis (PHP/Node)</li>
-			</ul>
-		</article>
-
-		<article>
-			<h3>APIs</h3>
-
-			<p class="subDetails">Google</p>
-			<ul class="keySkills">
-				<li>Maps</li>
-				<li>Search</li>
-				<li>Analytics</li>
-			</ul>
-			<p class="subDetails">Social</p>
-			<ul class="keySkills">
-				<li>Twitter</li>
-				<li>Facebook</li>
-				<li>Vk.com</li>
-			</ul>
-			<p class="subDetails">Payment systems</p>
-			<ul class="keySkills">
-				<li>Paypal</li>
-				<li>Dps</li>
-				<li>eWay</li>
-				<li>LiqPay</li>
-			</ul>
-		</article>
-
-		<article>
-			<h3>Versioning</h3>
-			<ul class="keySkills">
-				<li>Git</li>
-				<li>SVN</li>
-				<li>GitHub</li>
-				<li>BitBucket</li>
-			</ul>
-		</article>
-
-		<article>
-			<h3>Platforms</h3>
-			<ul class="keySkills">
-				<li>CentOS</li>
-				<li>Ubuntu</li>
-				<li>Debian</li>
-				<li>AWS</li>
-			</ul>
-		</article>
-
-	</div>
-	<div class="clear"></div>
-</section>
-<section>
-	<article>
-
-		<div class="sectionTitle">
-			<h2 id="AdditionalSkills">Additional skills</h2>
-		</div>
-
-		<div class="sectionContent">
-			<article>
-				<p>Graphical design experience using Adobe Photoshop, Adobe Illustrator, Corel Draw. Some experience in team leading. Teaching abilities.</p>
-			</article>
-		</div>
-
-	</article>
-	<div class="clear"></div>
-</section>
-
-<section class="workExperience">
-	<div class="sectionTitle">
-		<h2 id="WorkExperienceSoftwareEngineer">Work Experience</h2>
-
-		<h3>as Software Engineer</h3>
-	</div>
-
-	<div class="sectionContent">
-
-		<article>
-			<h3>Software engineer at WingedMedia</h3>
-
-			<p class="subDetails">November 2012 &mdash; Present</p>
-
-			<p>Supporting Zend Framework based domain auction/trading platform
-				<a href="http://www.protrada.com.au" class="noPrint" target="_blank">Protrada <span class="icon-share-alt icon-small"></span></a>
-				<span class="print" style="display: none;">http://www.protrada.com.au</span>.
-				Developing new version on NodeJS and MongoDB.</p>
-
-			<ul class="skills">
-				<li>Javascript</li>
-				<li>NodeJS</li>
-				<li>MongoDB</li>
-				<li>PHP5</li>
-				<li>Zend Framework</li>
-				<li>MySQL</li>
-				<li>AWS</li>
-			</ul>
-		</article>
-
-		<article>
-			<h3>Lead developer at Ziller</h3>
-
-			<p class="subDetails">July 2012 &mdash; November 2012</p>
-
-			<p>E-commerce projects development and support.</p>
-
-			<ul class="projects">
-				Released projects:
-				<li>
-					<a href="http://www.najo.com.au" class="noPrint" target="_blank">Najo.com.au <span class="icon-share-alt icon-small"></span></a>
-					<span class="print" style="display: none;">http://www.najo.com.au</span>
-					&mdash; Magento-based. A lot of customizations and plugins integration
-				</li>
-				<li>
-					<a href="http://www.younghenrys.com" class="noPrint" target="_blank">Young Henry's <span class="icon-share-alt icon-small"></span></a>
-					<span class="print" style="display: none;">http://www.younghenrys.com</span>
-					&mdash; Wordpress-based. Integration with Mailchimp, Facebook. Custom templates.
-				</li>
-				<li>
-					<a href="http://www.otdfpng.org" class="noPrint" target="_blank">OK Tedi Development Foundation <span class="icon-share-alt icon-small"></span></a>
-					<span class="print" style="display: none;">http://www.otdfpng.org</span>
-					&mdash; Based on my own core. Project was fully rewritten from scratch in 1 month, including all additional functionality planned for next two versions. That made final release possible in approximately 2 months before deadline. Unfortunately project was frozen
-					(business reason) and new version was not deployed.
-				</li>
-			</ul>
-
-			<ul class="skills">
-				<li>Javascript</li>
-				<li>PHP5</li>
-				<li>Zend Framework</li>
-				<li>MySQL</li>
-				<li>Magento</li>
-				<li>Wordpress</li>
-			</ul>
-		</article>
-
-
-		<article>
-			<h3>Software engineer at Rocket Internet</h3>
-
-			<p class="subDetails">March 2012 &mdash; July 2012</p>
-
-			<p>Development and support of e-commerce projects
-				<a href="http://www.theiconic.com.au" class="noPrint" target="_blank">TheIconic <span class="icon-share-alt icon-small"></span></a>
-				<span class="print" style="display: none;">http://www.theiconic.com.au</span>
-				and
-				<a href="http://www.zanui.com.au" class="noPrint" target="_blank">Zanui <span class="icon-share-alt icon-small"></span></a><span class="print" style="display: none;">http://www.zanui.com.au</span>.
-				I had a key role in Zanui.com.au migration to a new core, that was successfully finished.</p>
-
-			<ul class="skills">
-				<li>PHP5</li>
-				<li>Zend Framework</li>
-				<li>MySQL</li>
-			</ul>
-		</article>
-
-
-		<article>
-			<h3>Software engineer/architect at DAXX</h3>
-
-			<p class="subDetails">February 2011 &mdash; February 2012</p>
-
-			<p>Design and Development of social networking startup <a href="http://opinionfirst.com" class="noPrint" target="_blank">OpinionFirst <span class="icon-share-alt icon-small"></span></a><span class="print" style="display: none;">http://opinionfirst.com</span>.</p>
-
-			<ul class="skills">
-				<li>PHP5</li>
-				<li>Zend Framework</li>
-				<li>MySQL</li>
-				<li>HTML</li>
-				<li>CSS</li>
-				<li>Javascript (PrototypeJS)</li>
-				<li>Graphic design</li>
-				<li>UX</li>
-			</ul>
-		</article>
-
-
-		<article>
-			<h3>Software engineer at IDE Group</h3>
-
-			<p class="subDetails">October 2010 &mdash; February 2011</p>
-
-			<p>Worked on heavy loaded projects
-				<a href="http://canoodle.com" class="noPrint" target="_blank">Canoodle <span class="icon-share-alt icon-small"></span></a><span class="print" style="display: none;">http://canoodle.com</span>,
-				<a href="http://lovescanner.com" class="noPrint" target="_blank">LoveScanner <span class="icon-share-alt icon-small"></span></a>
-				<span class="print" style="display: none;">http://lovescanner.com</span>
-				based on customized CakePHP framework, MS SQL and jQuery. Involved in refactoring key parts of engine, designing and developing new
-				modules.</p>
-
-			<p>I have refactored user authorization system, user tracking system, canoodle facebook application, user's auto-registration on external dating sites.</p>
-
-			<ul class="skills">
-				<li>PHP5</li>
-				<li>CakePHP</li>
-				<li>MS SQL</li>
-				<li>HTML</li>
-				<li>CSS</li>
-				<li>Javascript (jQuery)</li>
-				<li>Facebook application development</li>
-			</ul>
-		</article>
-
-
-		<article>
-			<h3>Software engineer at Cybertone</h3>
-
-			<p class="subDetails">October 2007 &mdash; October 2010</p>
-
-			<p>I was responsible for internal CMS based on Zend Framework. 3rd major revision was completely overwritten by me "from scratch". Also I made custom JS framework, based on Prototype and Scriptaculous.
-
-				There were more than 30 projects I've done partially or completely by myself:
-				<a href="http://djmag.com.au" class="noPrint" target="_blank">DJMag Ukraine <span class="icon-share-alt icon-small"></span></a><span class="print" style="display: none;">http://djmag.com.au</span>,
-				<a href="http://sharmanka.ua" class="noPrint" target="_blank">Radio Sharmanka <span class="icon-share-alt icon-small"></span></a><span class="print" style="display: none;">http://sharmanka.ua</span>.
-
-				Almost all of them were based on my Zend Core. But some small projects I've developed using only clean Zend Framework:
-				<a href="http://myme.ru" class="noPrint" target="_blank">MyMe <span class="icon-share-alt icon-small"></span></a><span class="print" style="display: none;">http://myme.ru</span>,
-				<a href="http://cybertone.eu" class="noPrint" target="_blank">Cybertone <span class="icon-share-alt icon-small"></span></a><span class="print" style="display: none;">http://cybertone.eu</span>.
-			</p>
-
-			<p>There were not only content-oriented sites but also some e-commerce sites and startups.</p>
-
-			<p>I was fully responsible for all front-end development tasks (html, css, javascript) and CMS core evolution.</p>
-
-			<ul class="skills">
-				<li>PHP5</li>
-				<li>Zend Framework</li>
-				<li>MySQL</li>
-				<li>HTML</li>
-				<li>CSS</li>
-				<li>Javascript (PrototypeJS)</li>
-				<li>Graphic design</li>
-				<li>UX</li>
-			</ul>
-		</article>
-
-
-		<article>
-			<h3>Software engineer at Multi-Programming Solutions</h3>
-
-			<p class="subDetails">May 2007 &mdash; October 2007</p>
-
-			<p>My second start in web-development. I was working on small content-oriented web-sites based on self-written framework (with PEAR, Smarty, MySQL), writing modules for Joomla, osCommerce and performing other junior-oriented tasks. I got experience with Ajax, MySQL, internet payments (PayPal), Google API, Facebook API.</p>
-
-			<ul class="skills">
-				<li>PHP5</li>
-				<li>PEAR Framework</li>
-				<li>Smarty</li>
-				<li>MySQL</li>
-				<li>HTML</li>
-				<li>CSS</li>
-				<li>Javascript</li>
-				<li>PayPal</li>
-				<li>Google APIs</li>
-				<li>Facebook APIs</li>
-			</ul>
-		</article>
-	</div>
-	<div class="clear"></div>
-</section>
-
-
-<section class="workExperience">
-	<div class="sectionTitle">
-		<h2 id="WorkExperienceSystemAdministrator">Work Experience</h2>
-
-		<h3>as System Administrator</h3>
-	</div>
-
-	<div class="sectionContent">
-
-		<article>
-			<h3>System Administrator at VERNA (former MKS System Integration)</h3>
-
-			<p class="subDetails">October 2006 &mdash; May 2007</p>
-
-			<p>I started there working on project for Phillip Morris, had many business trips in Ukraine implementing special tracking system and teaching service staff. Also I got some experience in team leading (for this project I had 2 people in my team).</p>
-
-			<p>After project was finished I got the vacant position of system administrator. There were over 100 computers in my responsibility. They were located in 6 cities, connected in one network (Windows domain) by Cisco VPN routers. After several months on this job I realized, that my vocation is web development.</p>
-
-			<ul class="skills">
-				<li>Windows 2003 Server as domain controller and mail server</li>
-				<li>FreeBSD as mail-relay and internet proxy</li>
-				<li>Cisco Routers and hardware VPNs</li>
-			</ul>
-		</article>
-
-
-		<article>
-			<h3>System administrator, service engineer at D’Comp</h3>
-
-			<p class="subDetails">June 2003 &mdash; October 2006</p>
-
-			<p>I began my work there as a computer sales manager. After one year I was accepted as system administrator, web-developer and service engineer.</p>
-
-			<p>I was responsible for the official D'Comp web-site
-				<a href="http://www.dcomp.dp.ua" class="noPrint" target="_blank">dcomp.dp.ua <span class="icon-share-alt  icon-small"></span></a><span class="print" style="display: none;">http://www.dcomp.dp.ua</span>,
-				but now my version of site available only in the
-				<a href="http://replay.waybackmachine.org/20051104041634/http://dcomp.dp.ua/" class="noPrint" target="_blank">internet archive <span class="icon-share-alt icon-small"></span></a><span class="print" style="display: none;">http://replay.waybackmachine.org/20051104041634/http://dcomp.dp.ua/</span>.
-				That was my first commercial website. It was completely developed by my own using PHP4, HTML and CSS. There were some forms, static pages, products catalog/price (auto-updated from csv), products ordering functionality.</p>
-
-			<ul class="skills">
-				<li>Computer hardware and software service</li>
-				<li>Local networks</li>
-				<li>Communication and sales skills</li>
-				<li>PHP4</li>
-				<li>HTML</li>
-				<li>CSS</li>
-			</ul>
-		</article>
-
-
-		<article>
-			<h3>Intern at National Mining University</h3>
-
-			<p class="subDetails">September 2002 &mdash; June 2003</p>
-
-			<p>Computer Lab assistant</p>
-
-			<ul class="skills">
-				<li>Computer hardware and software service</li>
-				<li>Local network support</li>
-			</ul>
-		</article>
-
-
-		<article>
-			<h3>Intern at Diant</h3>
-
-			<p class="subDetails">August 2000 &mdash; June 2002</p>
-
-			<p>Computers assembling and repairing. Setup and configuration of Windows, Linux, FreeBSD. User support. Learning basics of web developing (PHP4) and web design.</p>
-
-			<ul class="skills">
-				<li>Computer hardware and software service</li>
-				<li>Windows</li>
-				<li>Linux</li>
-				<li>PHP4</li>
-				<li>Corel Draw</li>
-			</ul>
-		</article>
-
-	</div>
-	<div class="clear"></div>
-</section>
-
-
-<section>
-	<div class="sectionTitle">
-		<h2 id="Education">Education</h2>
-	</div>
-
-	<div class="sectionContent">
-
-		<article>
-			<h3>National Mining University of Ukraine</h3>
-
-			<p class="subDetails">Master of Science in Computer Science (2001-2006)</p>
-
-			<p>Studied computer networks and systems, finished with first class diploma.</p>
-		</article>
-
-	</div>
-	<div class="clear"></div>
-</section>
-
-
-<section>
-	<div class="sectionTitle">
-		<h2 id="Personal">Personal</h2>
-	</div>
-
-	<div class="sectionContent">
-
-		<article>
-			<h3>I love:</h3>
-
-			<p>Cycling (commuting, road, mtb), cats, photography, reading (sci-fi, cyberpunk)</p>
-		</article>
-
-		<article>
-			<h3>Favourite music styles</h3>
-
-			<p>Hardcore, industrial, dubstep, breakcore, drum and bass, psy trance</p>
-		</article>
-
-		<article>
-			<h3>Social activity</h3>
-
-			<p>I had my little underground music promotion / event company - Total War promo. Since March of 2008 till February of 2012 I've made more than 30 club events (~100-400 visitors, including 2 clubs openings), one massive open-air (~1000 visitors, 4 dance floors) and a couple of squats. Music styles: hardcore, breakcore, jungle, industrial, experimental, idm.</p>
-
-			<p>Here I've acquired good management experience, found many friends and had a lot of fun.</p>
-		</article>
-
-
-	</div>
-	<div class="clear"></div>
-</section>
-
-</div>
-</div>
-
-<nav>
-	<ul>
-		<li><a href="#top">Contact</a></li>
-		<li><a href="#Summary">Summary</a></li>
-		<li><a href="#MyMainProjects">My main projects</a></li>
-		<li><a href="#KeySkills">Key skills</a></li>
-		<li><a href="#AdditionalSkills">Additional skills</a></li>
-		<li><a href="#WorkExperienceSoftwareEngineer">Work experience<br><sub>Software engineer</sub></a></li>
-		<li><a href="#WorkExperienceSystemAdministrator">Work experience<br><sub>System administrator</sub></a></li>
-		<li><a href="#Education">Education</a></li>
-		<li><a href="#Personal">Personal</a></li>
-	</ul>
-</nav>
-
-</body>
+<html lang="en">
+  <head>
+    <title>Nik Butenko - Curriculum Vitae</title>
+
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="The Curriculum Vitae of Nik Butenko." />
+    <meta charset="UTF-8">
+
+    <link type="text/css" rel="stylesheet" href="./css/style.css">
+    <link type="text/css" rel="stylesheet" href="./css/font-awesome.css">
+
+    <script type="text/javascript">
+      var show = function (id) {
+        document.getElementById('container' + id).style.display = 'block';
+        document.getElementById('hide' + id).style.display = 'inline';
+        document.getElementById('show' + id).style.display = 'none';
+      };
+      var hide = function (id) {
+        document.getElementById('container' + id).style.display = 'none';
+        document.getElementById('hide' + id).style.display = 'none';
+        document.getElementById('show' + id).style.display = 'inline';
+      };
+    </script>
+  </head>
+  <body id="top">
+
+    <div id="cv">
+      <div class="mainDetails">
+        <div id="headshot">
+          <img src="./img/headshot.jpg" alt="Nik Butenko" />
+        </div>
+
+        <div id="name">
+          <h1>Nik Butenko</h1>
+
+          <h2>Software Engineer</h2>
+        </div>
+
+        <div id="contactDetails">
+          <ul>
+            <li><a href="mailto:nikita.butenko@gmail.com" target="_blank"><span
+              class="icon-envelope"></span>&nbsp;nik@butenko.me</a></li>
+            <li><a href="https://linkedin.com/in/nbutenko" target="_blank"><span
+              class="icon-linkedin"></span>&nbsp;https://linkedin.com/in/nbutenko</a></li>
+            <li><a href="https://github.com/nkbt" target="_blank"><span class="icon-github"></span>&nbsp;https://github.com/nkbt</a>
+            </li>
+            <li><a href="tel:0450-264-801"><span class="icon-phone"></span>&nbsp;0450-264-801</a>
+            </li>
+          </ul>
+        </div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="mainArea">
+        <section>
+          <article>
+            <div class="sectionTitle">
+              <h2 id="Summary">Summary</h2>
+            </div>
+
+            <div class="sectionContent">
+              <article>
+                <p>First of all I am an engineer. I love to solve problems. I spend most of my
+                  personal time reading about new technologies, new languages and new techniques.
+                  Even if I would never use them directly, they usually inspire me to invent
+                  something new. I love my work and I am very passionate about technology. I like to
+                  share my experience and learn through my colleagues and the
+                  technical community.</p>
+
+                <p>The main technology I use nowadays is Javascript. I started to program in
+                  Javascript in 2006 and since then worked full time with it. I did front-end work
+                  for all my projects, as well as back-end. During past 6 years I built my own
+                  universal and light core (PHP/Zend + Javascript/PrototypeJS) to make new projects
+                  faster and easier. It is still used in many projects and
+                  couple of different teams.</p>
+
+                <p>
+                  Past 3-4 years I read a lot about NodeJS and always tried to do something with it.
+                  But only since the end of 2012 I started to use NodeJS in some of my real projects
+                  - at last it became mature enough and I got chance to use it for production.
+                  Based on Node, I created zend-like dispatching library
+                  <a href="https://github.com/nkbt/puma" class="noPrint" target="_blank"><span
+                    class="icon-github"></span>&nbsp;Puma</a>
+                  <span class="print" style="display: none;">https://github.com/nkbt/puma</span>
+                  and re-usable server/browser models
+                  <a href="https://github.com/nkbt/gleam" class="noPrint" target="_blank"><span
+                    class="icon-github"></span>&nbsp;Gleam</a>
+                  <span class="print" style="display: none;">https://github.com/nkbt/gleam</span>.
+                </p>
+              </article>
+            </div>
+          </article>
+          <div class="clear"></div>
+        </section>
+
+        <section>
+          <article>
+            <div class="sectionTitle">
+              <h2 id="MyMainProjects">My main projects</h2>
+            </div>
+
+            <div class="sectionContent">
+
+              <article>
+                <h3>Zend-based Core</h3>
+
+                <p class="subDetails noPrint">
+                  <a id="showZend" href="javascript:show('Zend')"><span
+                    class="icon-chevron-right"></span> Expand</a>
+                  <a id="hideZend" href="javascript:hide('Zend')" style="display: none;"><span
+                    class="icon-chevron-down"></span> Collapse</a>
+                </p>
+
+                <div id="containerZend" class="print" style="display: none;">
+
+                  <p>Mentioned in summary Zend-based core was started during my work at Cybertone.
+                    Today I support and develop one project based on it. I wanted to publish full
+                    source code, but 3-4 years ago it was not good enough to be shared, and now it
+                    looks a bit outdated in matter of used frameworks (Zend Framework 1.12.0,
+                    Prototype JS 1.7.1).</p>
+
+                  <p>I support "thin controller" idea and main business logic is implemented in
+                    models. Every model consists of Db layer, Entity transfer object, Db and Form
+                    data adapters and Manager that makes all the main work. In Db layer
+                    Zend_Db_Adapter is used and for all data selects I use Zend_Db_Select. I do not
+                    use Zend_Db_Table/Row, instead Entities are used. Entity is just a simple
+                    transfer object, usually represents table row, but also has some additional
+                    properties and provides fluent interface to access related Entities.</p>
+
+                  <p>The way it works is pretty simple and I managed to introduce it in at least two
+                    teams in very short time. It is also project-independent and could be used in
+                    any existing Zend-based project.</p>
+
+                  <p>Recently I made important upgrade of back-end part of Core. Now it successfully
+                    utilizes Redis and NodeJS to have event-based (with Redis pub/sub)
+                    communications among different entities. The project is still based on
+                    PHP/Zend/Mysql but some heavy work (like counters, caching, cascaded updates) is
+                    now done with Node and Redis (and sometimes PHP callbacks made by Node). The
+                    way
+                    it works is pretty interesting and I will be happy to share it.</p>
+
+                  <p>The way my front-end Javascript part is organized is still fresh despite of its
+                    age (I found some new popular libraries having similar architecture and flow).
+                    It consists of main component loader, couple of additional support classes (like
+                    request manager) and a lot of completely independent components. AMD ideology is
+                    used there to load everything (local and remote css and
+                    js).
+                    Actually, I implemented the loader, that works in very similar way to very
+                    popular RequireJS library. First version was written about 6 years ago and that
+                    time we did not have such a big variety of good and simple libs. Even jQuery was
+                    pretty bad comparing to PrototypeJS that time.</p>
+
+                  <p>All components communicate using native DOM events only, therefore it is very
+                    easy to add new components, load them dynamically and communicate with others.
+                    In addition to pure front-end components, there are plenty of components, that
+                    work together with my custom Zend Form Elements.</p>
+
+                  <p>I can say that even being the part of my core, it still could be used outside
+                    of it - once I took some main JS core files and components and easily integrated
+                    them with a Magento project (it uses Prototype).</p>
+
+                  <p>For all my new projects I, of course, use all these new libraries (like
+                    RequireJS, Underscore, jQuery, Async, and many more), still keeping similar way
+                    and architecture, just using different libraries.</p>
+
+                </div>
+              </article>
+
+              <article>
+
+                <h3>NodeJS Puma library</h3>
+
+                <p class="subDetails noPrint">
+                  <a id="showPuma" href="javascript:show('Puma')"><span
+                    class="icon-chevron-right"></span> Expand</a>
+                  <a id="hidePuma" href="javascript:hide('Puma')" style="display: none;"><span
+                    class="icon-chevron-down"></span> Collapse</a>
+                </p>
+
+                <div id="containerPuma" class="print" style="display: none;">
+
+                  <p>This library supposed to be used in ExpressJS based projects, and mainly
+                    oriented on former Zend Framework developers. It has similar dispatching and
+                    routing processes, uses controllers. Does not have any views and models section,
+                    because I wanted to keep it as small as possible. It allows to build modular API
+                    services and has bootstrapping middle-ware to serve static
+                    contend for one-page applications.</p>
+
+                  <p>There is a JSDoc generated documentation, that covers all publicly available
+                    methods with relevant usage examples. </p>
+
+                  <p>I develop and support it in my spare time and plan to use for my future
+                    personal projects.</p>
+                </div>
+
+              </article>
+
+              <article>
+                <h3>NodeJS Gleam library</h3>
+
+                <p class="subDetails noPrint">
+                  <a id="showGleam" href="javascript:show('Gleam')"><span
+                    class="icon-chevron-right"></span> Expand</a>
+                  <a id="hideGleam" href="javascript:hide('Gleam')" style="display: none;"><span
+                    class="icon-chevron-down"></span> Collapse</a>
+                </p>
+
+                <div id="containerGleam" class="print" style="display: none;">
+                  <p>Besides Puma, there is another library available - Gleam. And it is much more
+                    interesting and exiting. I like the idea of Transfer Objects within application.
+                    In my applications I use Entities (simple TO but with some additional functions
+                    like data validation, type casting, etc). Because I planned to write modern
+                    one-page-apps I decided to have Entities on the front-end as
+                    well.</p>
+
+                  <p>That is how the idea of Gleam was born. And now I am able to write Entity once
+                    and use it on the NodeJS side and on the browser side. Every entity is
+                    automatically serialized to JSON and de-serialized on front-end to correct
+                    objects. Gleam is for now on the very early stage, it is more like "proof of
+                    concept". I still need to build some real projects based on it.</p>
+                </div>
+              </article>
+            </div>
+          </article>
+          <div class="clear"></div>
+        </section>
+
+
+        <section>
+          <div class="sectionTitle">
+            <h2 id="KeySkills">Key Skills</h2>
+          </div>
+          <div class="sectionContent">
+
+            <article>
+              <h3>Javascript</h3>
+
+              <p class="subDetails">Major</p>
+              <ul class="keySkills">
+                <li>PrototypeJS</li>
+                <li>Scriptaculous</li>
+                <li>jQuery</li>
+                <li>RequireJS</li>
+                <li>NodeJS</li>
+                <li>Underscore</li>
+                <li>Async (Browser/Node)</li>
+                <li>ExpressJS (Node)</li>
+              </ul>
+              <p class="subDetails">Minor</p>
+              <ul class="keySkills minor">
+                <li>Mootools</li>
+              </ul>
+            </article>
+
+            <article>
+              <h3>PHP</h3>
+
+              <p class="subDetails">Major</p>
+              <ul class="keySkills">
+                <li>Zend Framework</li>
+              </ul>
+              <p class="subDetails">Minor</p>
+              <ul class="keySkills minor">
+                <li>CakePHP</li>
+                <li>Magento</li>
+                <li>Symphony</li>
+                <li>Wordpress</li>
+              </ul>
+            </article>
+
+            <article>
+              <h3>Databases</h3>
+              <ul class="keySkills">
+                <li>MySQL</li>
+                <li>MongoDB</li>
+                <li>Redis (PHP/Node)</li>
+              </ul>
+            </article>
+
+            <article>
+              <h3>APIs</h3>
+
+              <p class="subDetails">Google</p>
+              <ul class="keySkills">
+                <li>Maps</li>
+                <li>Search</li>
+                <li>Analytics</li>
+              </ul>
+              <p class="subDetails">Social</p>
+              <ul class="keySkills">
+                <li>Twitter</li>
+                <li>Facebook</li>
+                <li>Vk.com</li>
+              </ul>
+              <p class="subDetails">Payment systems</p>
+              <ul class="keySkills">
+                <li>Paypal</li>
+                <li>Dps</li>
+                <li>eWay</li>
+                <li>LiqPay</li>
+              </ul>
+            </article>
+
+            <article>
+              <h3>Versioning</h3>
+              <ul class="keySkills">
+                <li>Git</li>
+                <li>SVN</li>
+                <li>GitHub</li>
+                <li>BitBucket</li>
+              </ul>
+            </article>
+
+            <article>
+              <h3>Platforms</h3>
+              <ul class="keySkills">
+                <li>CentOS</li>
+                <li>Ubuntu</li>
+                <li>Debian</li>
+                <li>AWS</li>
+              </ul>
+            </article>
+
+          </div>
+          <div class="clear"></div>
+        </section>
+        <section>
+          <article>
+
+            <div class="sectionTitle">
+              <h2 id="AdditionalSkills">Additional skills</h2>
+            </div>
+
+            <div class="sectionContent">
+              <article>
+                <p>Graphical design experience using Adobe Photoshop, Adobe Illustrator, Corel Draw.
+                  Some experience in team leading. Teaching abilities.</p>
+              </article>
+            </div>
+
+          </article>
+          <div class="clear"></div>
+        </section>
+
+        <section class="workExperience">
+          <div class="sectionTitle">
+            <h2 id="WorkExperienceSoftwareEngineer">Work Experience</h2>
+
+            <h3>as Software Engineer</h3>
+          </div>
+
+          <div class="sectionContent">
+
+            <article>
+              <h3>Software engineer at WingedMedia</h3>
+
+              <p class="subDetails">November 2012 &mdash; Present</p>
+
+              <p>Supporting Zend Framework based domain auction/trading platform
+                <a href="http://www.protrada.com.au" class="noPrint" target="_blank">Protrada <span
+                  class="icon-share-alt icon-small"></span></a>
+                <span class="print" style="display: none;">http://www.protrada.com.au</span>.
+                Developing new version on NodeJS and MongoDB.</p>
+
+              <ul class="skills">
+                <li>Javascript</li>
+                <li>NodeJS</li>
+                <li>MongoDB</li>
+                <li>PHP5</li>
+                <li>Zend Framework</li>
+                <li>MySQL</li>
+                <li>AWS</li>
+              </ul>
+            </article>
+
+            <article>
+              <h3>Lead developer at Ziller</h3>
+
+              <p class="subDetails">July 2012 &mdash; November 2012</p>
+
+              <p>E-commerce projects development and support.</p>
+
+              <ul class="projects">
+                Released projects:
+                <li>
+                  <a href="http://www.najo.com.au" class="noPrint" target="_blank">Najo.com.au <span
+                    class="icon-share-alt icon-small"></span></a>
+                  <span class="print" style="display: none;">http://www.najo.com.au</span>
+                  &mdash; Magento-based. A lot of customizations and plugins integration
+                </li>
+                <li>
+                  <a href="http://www.younghenrys.com" class="noPrint" target="_blank">Young Henry's
+                    <span class="icon-share-alt icon-small"></span></a>
+                  <span class="print" style="display: none;">http://www.younghenrys.com</span>
+                  &mdash; Wordpress-based. Integration with Mailchimp, Facebook. Custom templates.
+                </li>
+                <li>
+                  <a href="http://www.otdfpng.org" class="noPrint" target="_blank">OK Tedi
+                    Development Foundation <span class="icon-share-alt icon-small"></span></a>
+                  <span class="print" style="display: none;">http://www.otdfpng.org</span>
+                  &mdash; Based on my own core. Project was fully rewritten from scratch in 1 month,
+                  including all additional functionality planned for next two versions. That made
+                  final release possible in approximately 2 months before deadline. Unfortunately
+                  project was frozen
+                  (business reason) and new version was not deployed.
+                </li>
+              </ul>
+
+              <ul class="skills">
+                <li>Javascript</li>
+                <li>PHP5</li>
+                <li>Zend Framework</li>
+                <li>MySQL</li>
+                <li>Magento</li>
+                <li>Wordpress</li>
+              </ul>
+            </article>
+
+
+            <article>
+              <h3>Software engineer at Rocket Internet</h3>
+
+              <p class="subDetails">March 2012 &mdash; July 2012</p>
+
+              <p>Development and support of e-commerce projects
+                <a href="http://www.theiconic.com.au" class="noPrint" target="_blank">TheIconic
+                  <span class="icon-share-alt icon-small"></span></a>
+                <span class="print" style="display: none;">http://www.theiconic.com.au</span>
+                and
+                <a href="http://www.zanui.com.au" class="noPrint" target="_blank">Zanui <span
+                  class="icon-share-alt icon-small"></span></a><span class="print"
+                  style="display: none;">http://www.zanui.com.au</span>.
+                I had a key role in Zanui.com.au migration to a new core, that was successfully
+                finished.</p>
+
+              <ul class="skills">
+                <li>PHP5</li>
+                <li>Zend Framework</li>
+                <li>MySQL</li>
+              </ul>
+            </article>
+
+
+            <article>
+              <h3>Software engineer/architect at DAXX</h3>
+
+              <p class="subDetails">February 2011 &mdash; February 2012</p>
+
+              <p>Design and Development of social networking startup <a
+                href="http://opinionfirst.com" class="noPrint" target="_blank">OpinionFirst <span
+                class="icon-share-alt icon-small"></span></a><span class="print"
+                style="display: none;">http://opinionfirst.com</span>.</p>
+
+              <ul class="skills">
+                <li>PHP5</li>
+                <li>Zend Framework</li>
+                <li>MySQL</li>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>Javascript (PrototypeJS)</li>
+                <li>Graphic design</li>
+                <li>UX</li>
+              </ul>
+            </article>
+
+
+            <article>
+              <h3>Software engineer at IDE Group</h3>
+
+              <p class="subDetails">October 2010 &mdash; February 2011</p>
+
+              <p>Worked on heavy loaded projects
+                <a href="http://canoodle.com" class="noPrint" target="_blank">Canoodle <span
+                  class="icon-share-alt icon-small"></span></a><span class="print"
+                  style="display: none;">http://canoodle.com</span>,
+                <a href="http://lovescanner.com" class="noPrint" target="_blank">LoveScanner <span
+                  class="icon-share-alt icon-small"></span></a>
+                <span class="print" style="display: none;">http://lovescanner.com</span>
+                based on customized CakePHP framework, MS SQL and jQuery. Involved in refactoring
+                key parts of engine, designing and developing new
+                modules.</p>
+
+              <p>I have refactored user authorization system, user tracking system, canoodle
+                facebook application, user's auto-registration on external dating sites.</p>
+
+              <ul class="skills">
+                <li>PHP5</li>
+                <li>CakePHP</li>
+                <li>MS SQL</li>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>Javascript (jQuery)</li>
+                <li>Facebook application development</li>
+              </ul>
+            </article>
+
+
+            <article>
+              <h3>Software engineer at Cybertone</h3>
+
+              <p class="subDetails">October 2007 &mdash; October 2010</p>
+
+              <p>I was responsible for internal CMS based on Zend Framework. 3rd major revision was
+                completely overwritten by me "from scratch". Also I made custom JS framework, based
+                on Prototype and Scriptaculous.
+
+                There were more than 30 projects I've done partially or completely by myself:
+                <a href="http://djmag.com.au" class="noPrint" target="_blank">DJMag Ukraine <span
+                  class="icon-share-alt icon-small"></span></a><span class="print"
+                  style="display: none;">http://djmag.com.au</span>,
+                <a href="http://sharmanka.ua" class="noPrint" target="_blank">Radio Sharmanka <span
+                  class="icon-share-alt icon-small"></span></a><span class="print"
+                  style="display: none;">http://sharmanka.ua</span>.
+
+                Almost all of them were based on my Zend Core. But some small projects I've
+                developed using only clean Zend Framework:
+                <a href="http://myme.ru" class="noPrint" target="_blank">MyMe <span
+                  class="icon-share-alt icon-small"></span></a><span class="print"
+                  style="display: none;">http://myme.ru</span>,
+                <a href="http://cybertone.eu" class="noPrint" target="_blank">Cybertone <span
+                  class="icon-share-alt icon-small"></span></a><span class="print"
+                  style="display: none;">http://cybertone.eu</span>.
+              </p>
+
+              <p>There were not only content-oriented sites but also some e-commerce sites and
+                startups.</p>
+
+              <p>I was fully responsible for all front-end development tasks (html, css, javascript)
+                and CMS core evolution.</p>
+
+              <ul class="skills">
+                <li>PHP5</li>
+                <li>Zend Framework</li>
+                <li>MySQL</li>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>Javascript (PrototypeJS)</li>
+                <li>Graphic design</li>
+                <li>UX</li>
+              </ul>
+            </article>
+
+
+            <article>
+              <h3>Software engineer at Multi-Programming Solutions</h3>
+
+              <p class="subDetails">May 2007 &mdash; October 2007</p>
+
+              <p>My second start in web-development. I was working on small content-oriented
+                web-sites based on self-written framework (with PEAR, Smarty, MySQL), writing
+                modules for Joomla, osCommerce and performing other junior-oriented tasks. I got
+                experience with Ajax, MySQL, internet payments (PayPal), Google API, Facebook
+                API.</p>
+
+              <ul class="skills">
+                <li>PHP5</li>
+                <li>PEAR Framework</li>
+                <li>Smarty</li>
+                <li>MySQL</li>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>Javascript</li>
+                <li>PayPal</li>
+                <li>Google APIs</li>
+                <li>Facebook APIs</li>
+              </ul>
+            </article>
+          </div>
+          <div class="clear"></div>
+        </section>
+
+
+        <section class="workExperience">
+          <div class="sectionTitle">
+            <h2 id="WorkExperienceSystemAdministrator">Work Experience</h2>
+
+            <h3>as System Administrator</h3>
+          </div>
+
+          <div class="sectionContent">
+
+            <article>
+              <h3>System Administrator at VERNA (former MKS System Integration)</h3>
+
+              <p class="subDetails">October 2006 &mdash; May 2007</p>
+
+              <p>I started there working on project for Phillip Morris, had many business trips in
+                Ukraine implementing special tracking system and teaching service staff. Also I got
+                some experience in team leading (for this project I had 2 people in my team).</p>
+
+              <p>After project was finished I got the vacant position of system administrator. There
+                were over 100 computers in my responsibility. They were located in 6 cities,
+                connected in one network (Windows domain) by Cisco VPN routers. After several months
+                on this job I realized, that my vocation is web development.</p>
+
+              <ul class="skills">
+                <li>Windows 2003 Server as domain controller and mail server</li>
+                <li>FreeBSD as mail-relay and internet proxy</li>
+                <li>Cisco Routers and hardware VPNs</li>
+              </ul>
+            </article>
+
+
+            <article>
+              <h3>System administrator, service engineer at D’Comp</h3>
+
+              <p class="subDetails">June 2003 &mdash; October 2006</p>
+
+              <p>I began my work there as a computer sales manager. After one year I was accepted as
+                system administrator, web-developer and service engineer.</p>
+
+              <p>I was responsible for the official D'Comp web-site
+                <a href="http://www.dcomp.dp.ua" class="noPrint" target="_blank">dcomp.dp.ua <span
+                  class="icon-share-alt  icon-small"></span></a><span class="print"
+                  style="display: none;">http://www.dcomp.dp.ua</span>,
+                but now my version of site available only in the
+                <a href="http://replay.waybackmachine.org/20051104041634/http://dcomp.dp.ua/"
+                  class="noPrint" target="_blank">internet archive <span
+                  class="icon-share-alt icon-small"></span></a><span class="print"
+                  style="display: none;">http://replay.waybackmachine.org/20051104041634/http://dcomp.dp.ua/</span>.
+                That was my first commercial website. It was completely developed by my own using
+                PHP4, HTML and CSS. There were some forms, static pages, products catalog/price
+                (auto-updated from csv), products ordering functionality.</p>
+
+              <ul class="skills">
+                <li>Computer hardware and software service</li>
+                <li>Local networks</li>
+                <li>Communication and sales skills</li>
+                <li>PHP4</li>
+                <li>HTML</li>
+                <li>CSS</li>
+              </ul>
+            </article>
+
+
+            <article>
+              <h3>Intern at National Mining University</h3>
+
+              <p class="subDetails">September 2002 &mdash; June 2003</p>
+
+              <p>Computer Lab assistant</p>
+
+              <ul class="skills">
+                <li>Computer hardware and software service</li>
+                <li>Local network support</li>
+              </ul>
+            </article>
+
+
+            <article>
+              <h3>Intern at Diant</h3>
+
+              <p class="subDetails">August 2000 &mdash; June 2002</p>
+
+              <p>Computers assembling and repairing. Setup and configuration of Windows, Linux,
+                FreeBSD. User support. Learning basics of web developing (PHP4) and web design.</p>
+
+              <ul class="skills">
+                <li>Computer hardware and software service</li>
+                <li>Windows</li>
+                <li>Linux</li>
+                <li>PHP4</li>
+                <li>Corel Draw</li>
+              </ul>
+            </article>
+
+          </div>
+          <div class="clear"></div>
+        </section>
+
+
+        <section>
+          <div class="sectionTitle">
+            <h2 id="Education">Education</h2>
+          </div>
+
+          <div class="sectionContent">
+
+            <article>
+              <h3>National Mining University of Ukraine</h3>
+
+              <p class="subDetails">Master of Science in Computer Science (2001-2006)</p>
+
+              <p>Studied computer networks and systems, finished with first class diploma.</p>
+            </article>
+
+          </div>
+          <div class="clear"></div>
+        </section>
+
+
+        <section>
+          <div class="sectionTitle">
+            <h2 id="Personal">Personal</h2>
+          </div>
+
+          <div class="sectionContent">
+
+            <article>
+              <h3>I love:</h3>
+
+              <p>Cycling (commuting, road, mtb), cats, photography, reading (sci-fi, cyberpunk)</p>
+            </article>
+
+            <article>
+              <h3>Favourite music styles</h3>
+
+              <p>Hardcore, industrial, dubstep, breakcore, drum and bass, psy trance</p>
+            </article>
+
+            <article>
+              <h3>Social activity</h3>
+
+              <p>I had my little underground music promotion / event company - Total War promo.
+                Since March of 2008 till February of 2012 I've made more than 30 club events
+                (~100-400 visitors, including 2 clubs openings), one massive open-air (~1000
+                visitors, 4 dance floors) and a couple of squats. Music styles: hardcore, breakcore,
+                jungle, industrial, experimental, idm.</p>
+
+              <p>Here I've acquired good management experience, found many friends and had a lot of
+                fun.</p>
+            </article>
+
+
+          </div>
+          <div class="clear"></div>
+        </section>
+
+      </div>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="#top">Contact</a></li>
+        <li><a href="#Summary">Summary</a></li>
+        <li><a href="#MyMainProjects">My main projects</a></li>
+        <li><a href="#KeySkills">Key skills</a></li>
+        <li><a href="#AdditionalSkills">Additional skills</a></li>
+        <li><a href="#WorkExperienceSoftwareEngineer">Work experience<br><sub>Software
+          engineer</sub></a></li>
+        <li><a href="#WorkExperienceSystemAdministrator">Work experience<br><sub>System
+          administrator</sub></a></li>
+        <li><a href="#Education">Education</a></li>
+        <li><a href="#Personal">Personal</a></li>
+      </ul>
+    </nav>
+
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-47923632-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      gtag('js', new Date());
+      gtag('config', 'UA-47923632-1');
+    </script>
+
+
+  </body>
 </html>
